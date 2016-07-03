@@ -1,2 +1,2 @@
 # angular2-review
-Reviewing Angular 2
+Angular 2 Review from Udemy course
