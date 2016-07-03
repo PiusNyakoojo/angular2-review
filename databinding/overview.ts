@@ -24,5 +24,5 @@ import {Component} from "angular2/core";
 })
 
 export class MyComponent {
-	var myName = "Pius";
+	myName = "Bob";
 }
