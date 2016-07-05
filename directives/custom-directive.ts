@@ -2,7 +2,9 @@
 	Custom Structural Directives
 
 	What we learn:
-		
+		- set keyword
+		- TemplateRef
+		- ViewContainerRef
 
 */
 
