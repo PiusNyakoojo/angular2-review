@@ -69,10 +69,10 @@ import {Component} from "angular2/core";
 				<input type="text" #color (keyup)=0 />
 			</div>
 			<div [ngSwitch]="color.value">
-				<template [ngSwitchWhen]="'red'"><span style="color: 'red'">Color is Red</span></template>
-				<template [ngSwitchWhen]="'blue'"><span style="color: 'blue'">Color is Blue</span></template>
-				<template [ngSwitchWhen]="'green'"><span style="color: 'green'">Color is Green</span></template>
-				<template ngSwitchDefault><span style="color: 'black'">Color is Green</span></template>
+				<template [ngSwitchWhen]="'red'"><span style="color: red">Color is Red</span></template>
+				<template [ngSwitchWhen]="'blue'"><span style="color: blue">Color is Blue</span></template>
+				<template [ngSwitchWhen]="'green'"><span style="color: green">Color is Green</span></template>
+				<template ngSwitchDefault><span>Don't know that color</span></template>
 			</div>
 		</section>
 	`
