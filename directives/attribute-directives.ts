@@ -31,6 +31,18 @@ import {AttributeDirective} from "./attribute-directive.component";
 			Examples:
 				- ngClass
 				- ngStyle
+
+			If you'd like to add a single class to an element, you can use
+
+			<div [class.className]="true"></div>
+
+			or
+
+			<div [ngClass]="{className: true}"></div>
+
+			To use ngStyle:
+
+			<div [ngStyle]="{'color' : true}"></div>
 		-->
 	
 		<section ngControl></section>

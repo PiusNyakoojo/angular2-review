@@ -18,8 +18,8 @@ import {Component} from "angular2/core";
 		<input #inputField (keyup)="myName = inputField.value" type="text">
 
 
-		<!--(d) 2-way databinding (used to be default in Angular 1) -->
-		<input [(value)]="myName = value" type="text" />
+		<!--(d) 2-way databinding (this used to be the default in Angular 1) -->
+		<input [(ngModel)]="myName" type="text" />
 	`
 })
 

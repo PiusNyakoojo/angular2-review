@@ -24,6 +24,15 @@ import {Component} from "angular2/core";
 
 		<input type="text" value="{{ myName }}" class="{{ 'my-css-class' }}" />
 
+		We can also check if a value is set before trying to access its properties. For example:
+
+		{{person.name}}
+
+		person might not be set so this would "break" our application.. to only allow this to use
+		person if it's set we can do this:
+
+		{{person?.name}}
+
 
 	`
 })

@@ -7,7 +7,48 @@
 		- For example, the *ngFor directive allows us to loop through an array
 		- Another example, the *ngIf will only display an element if a certain condition is met
 		- Another example, is the [ngSwitch]
+	
 
+	If you want to access the index of the current item in an ngFor you can do this:
+	
+	*ngFor="let item of items; let i = index"
+
+	index is a keyword angular 2 recognizes and is the index of the current item.
+
+	<ul>
+		<li *ngFor="let item of items">{{item}} - (Index: {{i}})</li>
+	</ul>
+
+	When using ngSwitch this is how to specify conditions:
+
+	<div [ngSwitch]="10">
+		<p *ngSwitchCase="10">10</p>
+		<p *ngSwitchCase="20">20</p>
+		<p *ngSwitchCase="30">30</p>
+		<p *ngSwitchDefault>Default</p>
+	</div>
+
+	In this example, the first case will be shown: <p *ngSwitchCase="10">10</p>
+
+
+	You might be wondering why we use * in front of the directive for ngIf, ngFor and ngSwitchCase.
+
+	Well, angular 2 de-sugars these directives behind the scenes. So when we write code like this:
+
+	<div *ngIf="true">Conditional text</div>
+
+	Angular 2 actually converts this to :
+
+	<template [ngIf]="true">
+		<div>
+			Conditional text
+		</div>
+	</template>
+
+	behind the scenes. So all the content in the template will be rendered if the condition is satisfied.
+	Else, it won't be rendered.
+
+	
 */
 
 

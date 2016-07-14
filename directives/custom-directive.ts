@@ -50,7 +50,7 @@ export class StructuralDirectives {
 
 // --------------- unless.directive.ts -----------------
 
-import {Directive} from "angular2/core";
+import {Directive, Input} from "angular2/core";
 import {TemplateRef} from "angular2/core"; // TemplateRef is the code between the element that we're attaching our directive to
 import {ViewContainerRef} from "angular2/core"; // ViewContainerRef references the element that our directive is within
 
@@ -68,7 +68,7 @@ export class UnlessDirective {
 
 	*/
 
-	constructor(private _templateRef: TemplateRef, private _viewContainerRef: ViewContainerRef) {
+	constructor(private _templateRef: TemplateRef<any>, private _viewContainerRef: ViewContainerRef) {
 
 	}
 
