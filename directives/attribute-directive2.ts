@@ -6,6 +6,19 @@
 	set if we wanted write access to outside components as well.
 
 	getters and setters are a typescript concept
+	
+	Examples of using HostBinding decorator: 
+
+	@HostBinding(property_to_bind_to) get getSomething() {
+		return this.something;
+	}
+
+	// In this example, the class 'open' will only be appended to the element that this directive is
+	// attached to if this.isOpened is true.
+
+	@HostBinding('class.open') get opened() {
+		return this.isOpened;
+	}
 
 */
 

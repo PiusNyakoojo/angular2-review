@@ -25,7 +25,87 @@
 			- If you inject the service at the child level, each child has a separate instance of the service
 		- Dependecy injection
 			- The process of passing a specific instance of an object to a method in a class
+	
+	To inject a service into another service:
+		- import the service and Injectable
+		- inject the service through the constructor
+		- have the @Injectable decorator
 
+	For example:
+
+	import { LogService } from 'wherever';
+	import { Injectable } from '@angular/core';
+
+	@Injectable()
+	export class DataService {
+		constructor(private logService: LogService) {}
+	}
+
+	Keep in mind: You only need the @Injectable() metadata if your service is receiving injections...
+	You don't need it if you are just wanting to be injected...
+
+	To communicate between components using services we will subscribe to the events that a service emits
+	using the subscribe() method.
+
+	So in our service we have something like
+
+	import { EventEmitter } from '@angular/core';
+
+	export class DataService {
+		pushedData: EventEmitter = new EventEmitter<string>();
+
+		pushData(value: string) {
+			this.pushedData.emit(value);
+		}
+	}
+
+	And our first component looks like this:
+
+	import { Component } from '@angular/core';
+	import { DataService } from 'whereever';
+
+	@Component({
+		//...
+	})
+
+	export class MyComponent {
+		
+		constructor(private dataService: DataService) {}
+
+		sendData() {
+			this.dataService.pushData("SOME DATA");
+		}
+	}
+
+	To communicate to our second component we need something like this:
+
+	import { Component, OnInit } from '@angular/core';
+
+	@Component({
+		//..
+	})
+
+	export class MyOtherComponent implements OnInit {
+		value: string = '';
+
+		constructor(private dataService: DataService) {}
+
+		ngOnInit() {
+			this.dataService.pushedData.subscribe(
+				data => this.value = data;
+			);
+		}
+	}
+
+	Essentially, the key here is that we are subscribing to an observable called pushData in our receiver component.
+	The subscribe method can take multiple callbacks which will be called when events are emitted.
+	
+
+	If we want to push an array of items onto another array we can:
+
+	Array.prototype.push.apply(this.items, items);
+
+	Of course, we could have also used a for loop to push all the items one at a time.
 */
 
 import {Component} from "@angular/core";

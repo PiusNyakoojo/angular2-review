@@ -13,6 +13,13 @@
 		- Imperative routing
 			- Triggering a link in our code rather than through clicking a link
 	
+	The Angular 2 router is all about changing the state of your application. Based on the url, the application
+	will serve a different component of your application. It parses the different parts of the URL by identifying
+	what the url is composed of (i.e. child paths, queries, etc..). With the parsed URLs, angular 2 then tries
+	to identify routes
+	
+	To view the latest router, go to overview2.ts
+
 
 	[routerLink]="['NAME_OF_ROUTE', {arg0, arg1, ...}]"
 
