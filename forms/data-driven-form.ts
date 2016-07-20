@@ -14,7 +14,7 @@
 
 	this.myForm = this._formBuilder.group({
 		'email': ['', Validator.required],
-		'password': '', Validator.required
+		'password': ['', Validator.required]
 	});
 
 	To ensure that angular 2 isn't using the default template driven approach of creating an ngForm ControlGroup reference
