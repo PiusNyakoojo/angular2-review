@@ -15,7 +15,7 @@ export interface ComponentCanDeactivate {
 	canDeactivate: () => Observable<boolean> | boolean;
 }
 
-export class UserGuard implements CanDeactivate {
+export class UserGuard implements CanDeactivate<ComponentCanDeactivate> {
 	canDeactivate(component: ComponentCanDeactivate): Observable<boolean> | boolean {
 		return component.canDeactivate ? component.canDeactivate() : true;
 	}
@@ -37,7 +37,7 @@ export class UserComponent implements ComponentCanDeactivate {
 import { UserGuard } from './user.guard';
 
 const APP_ROUTES: RouterConfig = [
-	{ path: 'user', component: UserComponent, canDeactivate: UserGuard }
+	{ path: 'user', component: UserComponent, canDeactivate: [UserGuard] }
 ];
 
 //-------------------- main.ts ------------------------------------------
